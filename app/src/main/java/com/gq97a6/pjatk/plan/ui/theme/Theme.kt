@@ -1,6 +1,7 @@
 package com.gq97a6.pjatk.plan.ui.theme
 
 import android.app.Activity
+import android.graphics.Color
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -39,7 +40,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun PlanPJATKTheme(
-        darkTheme: Boolean = isSystemInDarkTheme(),
+        darkTheme: Boolean = false,
         // Dynamic color is available on Android 12+
         dynamicColor: Boolean = true,
         content: @Composable () -> Unit
@@ -55,8 +56,8 @@ fun PlanPJATKTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
-            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
+            (view.context as Activity).window.statusBarColor = Color.WHITE
+            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = true
         }
     }
 
